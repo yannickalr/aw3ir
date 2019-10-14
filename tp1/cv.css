@@ -3,5 +3,7 @@
   margin: auto;
   font-family: 'Source sans Pro', Calibri, Tahoma , sans-serif;
   font-size: 16px;
-
+}
+.info{
+  height: 250px;
 }
