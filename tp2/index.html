@@ -7,7 +7,6 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
 
         <style>
@@ -68,6 +67,22 @@ button {
      entre les étiquettes et les champs texte */
   margin-left: .5em;
 }
+#result {
+  background-color: rgb(45, 186, 25);
+  padding: 10px;
+  border: rgba(255, 255, 255);
+}
+
+#space {
+  background-color: #e9ebee;
+  padding: 1%;
+}
+#error {
+  background-color: rgb(60, 70, 25);
+  padding: 10px;
+  border: rgba(255, 255, 255);
+}
+
         </style>
 
         <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
@@ -90,7 +105,7 @@ button {
     <div>
     <label for="birthday">Date de naissance :</label>
 
-    <input type="date" id="birthday" name="user_birthday">
+    <input type="date" id="birthday" name="user_birthday" placeholder="JJ/MM/AAAA" />
     </div>
 
     <div>
@@ -98,12 +113,15 @@ button {
         <input type="email" id="mail" name="user_mail">
     </div>
     <div>
-        <label for="msg">Message :</label>
-        <textarea id="msg" name="user_message"></textarea>
+        <label for="address">Adresse :</label>
+        <textarea id="address" name="user_address"></textarea>
     </div>
     <div>
-      <input type= 'submit' id='bouton_envoi' value ='VALIDER'>"
+      <input type= 'submit' id='bouton_envoi' value ='VALIDER' onclick="validation()"/>
     </div>
+    <div id="error"> </div>
+    <div id="space"> </div>
+    <div id="result"> </div>
 
 </form>
     </body>
