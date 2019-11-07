@@ -44,7 +44,7 @@ var addressValue = document.querySelector("#address").value;
                    document.querySelector("#error").textContent="le champs address est vide";
                    document.querySelector("#result").textContent="";
                 }
-    else if (addressValue.length<5){
+     else if (addressValue.length<5){
                    document.querySelector("#error").textContent="l'addresse doit contenir au moins 5 caracteres";
                    document.querySelector("#result").textContent="";
                 }
