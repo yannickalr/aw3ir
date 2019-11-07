@@ -56,7 +56,7 @@ var addressValue = document.querySelector("#address").value;
                   && mailValue.length>=5
                   && addressValue.length>=5)
                   {
-                   document.querySelector("#result").textContent="Bienvenue" + document.querySelector(    "#name").value + document.querySelector("#surname").value;
+                   document.querySelector("#result").textContent="Bienvenue" + "  " + document.querySelector("#name").value + "  " + document.querySelector("#surname").value;
                    document.querySelector("#error").textContent="";
                 }
 
