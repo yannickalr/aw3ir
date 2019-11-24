@@ -10,24 +10,156 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
 
+        <!-- jquery pour pouvoir utiliser les composants JS de boostap (modal, tooltip...) -->
+        <script src="js/jquery-3.2.1.slim.min.js"></script>
+
+        <!-- CSS boostrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <script src="js/popper.min.js"></script>
+
+        <!-- composants JS de boostrap (modal http://getbootstrap.com/docs/4.0/components/modal/ , collapse...) -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/form-jquery-validation.js"></script>
+
         <style>
-          body{
-              background-color: #e9ebee;              
-              font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
-              font-size: 16px;
-              margin: 0 auto;
-              max-width: 800px;              
-          }
-        </style>
-        
-        <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
-        <!--<link rel="stylesheet" href="style.css">-->
-        <!--<script src="main.js"></script>-->
+        form {
+  /* Uniquement centrer le formulaire sur la page */
+  margin: 0 auto;
+  width: 400px;
+  /* Encadré pour voir les limites du formulaire */
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+}
+
+form div + div {
+  margin-top: 1em;
+}
+
+label {
+  /* Pour être sûrs que toutes les étiquettes ont même taille et sont correctement alignées */
+  display: inline-block;
+  width: 90px;
+  text-align: right;
+}
+
+input, textarea {
+  /* Pour s'assurer que tous les champs texte ont la même police.
+     Par défaut, les textarea ont une police monospace */
+  font: 1em sans-serif;
+
+  /* Pour que tous les champs texte aient la même dimension */
+  width: 300px;
+  box-sizing: border-box;
+
+  /* Pour harmoniser le look & feel des bordures des champs texte */
+  border: 1px solid #999;
+}
+
+input:focus, textarea:focus {
+  /* Pour souligner légèrement les éléments actifs */
+  border-color: #000;
+}
+
+textarea {
+  /* Pour aligner les champs texte multi‑ligne avec leur étiquette */
+  vertical-align: top;
+
+  /* Pour donner assez de place pour écrire du texte */
+  height: 5em;
+}
+
+.button {
+  /* Pour placer le bouton à la même position que les champs texte */
+  padding-left: 5px; /* même taille que les étiquettes */
+}
+
+button {
+  /* Cette marge supplémentaire représente gle même espace que celui
+     entre les étiquettes et les champs texte */
+  margin-left: .5em;
+}
+
+
+</style>
+
+<script src="js/form-jquery-validation.js"></script>
+
+
     </head>
-    <body>        
-        <h1>tp3</h1>
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-        <img src="../galilee.png" alt="Logo Galilee"/>
-    </body>
+    <body>
+
+
+       <div class="container">
+           <div class="row">
+               <div class="col-lg-12">
+                   <div class="tableaudebord">
+                       <div class="contact_container">
+                           <div class="row">
+                               <div class="col-lg-12 col-md-12">
+                                   <h2>TP3 Formulaire v2</h2>
+                                   <p>Avec boostrap et jQuery</p>
+                                   <div class="nb_com" style="display:none">9</div>
+                               </div>
+                           </div>
+                       </div>
+
+                       <div class='container'>
+                           <div class='row'>
+                                   <form class="form-horizontal" role="form">
+                                       <div class='row'>
+                                                   <div class="form-group">
+                                                       <label for="nom" class="col-sm-2 control-label">Nom :</label>
+                                                       <div class="col-sm-8">
+                                                           <input type="text" class="form-control" name="name" id="name">
+                                                       </div>
+                                                   </div>
+                                                   <div class="form-group" >
+                                                       <label for="prenom" class="col-sm-2 control-label">Prenom :</label>
+                                                       <div class="col-sm-8">
+                                                           <input type="text" class="form-control" name="prenom" id="prenom">
+                                                       </div>
+                                                   </div>
+                                                   <div class="form-group" >
+                                                       <label for="birthday" class="col-sm-2 control-label">Date de naissance :</label>
+                                                       <div class="col-sm-8">
+                                                           <input type="date" class="form-control" name="user_birthday" id="birthday" placeholder="JJ/MM/AAAA">
+                                                       </div>
+                                                   </div>
+
+                                                   <div class="form-group">
+                                                       <label for="mail" class="col-sm-2 control-label">Email :</label>
+                                                       <div class="col-sm-8">
+                                                           <input type="email" class="form-control" name="email" id="email">
+                                                       </div>
+                                                   </div>
+                                                   <div class="form-group">
+                                                       <label for="tel" class="col-sm-2 control-label">Contact :</label>
+                                                       <div class="col-sm-8">
+                                                           <input type="text" class="form-control" name="tel" id="tel">
+                                                       </div>
+                                                   </div>
+
+                                                   <div>
+                                                       <label for="address">Adresse :</label>
+                                                       <textarea id="address" name="user_address"></textarea>
+                                                   </div>
+                                                   <!--                                    </form>-->
+                                               </div>
+                                       <div class="row">
+                                           <div class="col-lg-12">
+                                               <div class="button">
+                                                   <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-xs-12">
+                                                       <button type="submit" id="bouton_envoi" value="VALIDER" onclick="validation()" class="btn btn-default"><span class="glyphicon glyphicon-floppy-disk"></span>Valider<span class="glyphicon glyphicon-chevron-right"></span></button>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </form>
+                                   <div id="error"> </div>
+                                   <div id="space"> </div>
+                                   <div id="result"> </div>
+
+</div>
 </html>
