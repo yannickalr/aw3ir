@@ -76,7 +76,7 @@ $('#datepicker').datepicker({
           var currentDate = date.getDate();
           var currentYear = date.getFullYear();
     $("#datepicker" ).datepicker( "option", "maxDate", new Date(currentYear, currentMonth, currentDate));
-          $(this).datepicker('setDate', new Date(iYear, iMonth, 1));
+    $(this).datepicker('setDate', new Date(iYear, iMonth, 1));
     },
      beforeShow: function(input, inst) {
           $(inst.dpDiv).addClass('calendar-off');
